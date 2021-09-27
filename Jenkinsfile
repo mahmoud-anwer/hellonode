@@ -30,13 +30,17 @@ node {
          * Pushing multiple tags is cheap, as all the layers are reused. 
          *docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials'*/
            //sh 'sudo docker login -u "anwer95" -p "Zephyr@17" docker.io'
-        /*docker.withRegistry("https://hub.docker.com/", '${dockerhub_id}'){
-                     newImage.push("latest")
-
-            }*/
+        docker.withRegistry("https://hub.docker.com/", 'dockerhub_id'){
+                     app.push("${env.BUILD_NUMBER}")
+                     app.push("latest")
+            }
+      /*docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {            
+				app.push("${env.BUILD_NUMBER}")
+                app.push("latest")
+	        }  */  
                
             //app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
+            //app.push("latest")
         
     }
 }
