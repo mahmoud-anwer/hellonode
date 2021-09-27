@@ -36,6 +36,7 @@ node {
           sh "docker login -u ${USERNAME} -p ${PASSWORD}"
            myImage.push("${env.BUILD_NUMBER}")
            myImage.push("latest")
+		}
 	}
         /*docker.withRegistry("https://hub.docker.com/", ''){
                      app.push("${env.BUILD_NUMBER}")
