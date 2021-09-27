@@ -35,7 +35,7 @@ node {
 		docker.withRegistry('', 'dockerhub_id') {
           sh "docker login -u ${USERNAME} -p ${PASSWORD}"
            app.push("${env.BUILD_NUMBER}")
-           app.push("latest")
+           //app.push("latest")
 		}
 	}
         /*docker.withRegistry("https://hub.docker.com/", ''){
